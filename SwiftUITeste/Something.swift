@@ -10,6 +10,7 @@ import SwiftUI
 struct Something: View {
     @State var name: String = "";
     @State var age: String = "";
+    
     @State var shouldContinue = false;
     @State var shouldError = false;
     
@@ -37,18 +38,17 @@ struct Something: View {
                     shouldError = true
                 }
             }
+            .buttonStyle(.borderedProminent)
             .alert("Result", isPresented: $shouldContinue) {
                 Button("Ok", role: .cancel) {}
             } message: {
                 Text("Hello, " + name + "! You are " + age + " years old!")
             }
-            .alert("Result", isPresented: $shouldError) {
+            .alert("Error", isPresented: $shouldError) {
                 Button("Try again", role: .cancel) {}
             } message: {
                 Text("The age you input is not a number!")
             }
-            .buttonStyle(.glassProminent)
-            
         }
         .padding()
         .padding(.bottom, 50)
