@@ -28,7 +28,7 @@ struct ContentView: View {
                 Forecast()
             }
             Tab("Nothing", systemImage: "questionmark.app.dashed") {
-                
+                Something()
             }
         }
         
